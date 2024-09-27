@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.controllers.v1 import order_controller
+from app.exception_handlers import exception_container
 
 app = FastAPI(
     docs_url="/api/docs",
@@ -25,3 +26,5 @@ app.title = "Beers Bar Api"
 app.version = "1.0"
 
 app.include_router(order_controller.router, prefix="/api/v1")
+
+exception_container(app)
