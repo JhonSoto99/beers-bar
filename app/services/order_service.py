@@ -3,6 +3,7 @@ from typing import Dict, List
 from app.models.order import Item, Order, Round
 from app.repositories.order_repository import OrderRepository
 from app.repositories.stock_repository import StockRepository
+from app.services.exceptions import InvalidOrderDataError
 
 
 class OrderService:
@@ -37,11 +38,14 @@ class OrderService:
 
         Returns:
             Order: The current order with updated items and subtotal.
+
+        Raises:
+
         """
         order = self.order_repository.get_order()
 
         if not order or not order.rounds:
-            raise ValueError("Invalid order data retrieved.")
+            raise InvalidOrderDataError("Order is None or has no rounds.")
 
         order.items = self.aggregate_items_from_rounds(order.rounds)
         order.subtotal = self.calculate_subtotal(order.items)
