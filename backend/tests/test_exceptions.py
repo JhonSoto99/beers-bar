@@ -1,7 +1,7 @@
 import pytest
 
-from app.repositories.exceptions import LoadOrderError, LoadStockError
-from app.services.exceptions import InvalidOrderDataError
+from backend.app.repositories.exceptions import LoadOrderError, LoadStockError
+from backend.app.services.exceptions import InvalidOrderDataError
 
 
 def test_load_order_error_default_message():

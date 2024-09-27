@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 
-from app.base_exceptions import CustomError
-from app.repositories.exceptions import LoadOrderError, LoadStockError
-from app.services.exceptions import InvalidOrderDataError
+from backend.app.base_exceptions import CustomError
+from backend.app.repositories.exceptions import LoadOrderError, LoadStockError
+from backend.app.services.exceptions import InvalidOrderDataError
 
 
 async def handle_custom_error(
-    exc: CustomError
+    request: Request, exc: CustomError
 ) -> JSONResponse:
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,

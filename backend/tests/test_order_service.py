@@ -2,8 +2,8 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from app.models.order import Item
-from app.services.order_service import OrderService
+from backend.app.models.order import Item
+from backend.app.services.order_service import OrderService
 
 
 @pytest.fixture

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
 
-from app.models.order import Order
-from app.repositories.order_repository import OrderRepository
-from app.repositories.stock_repository import StockRepository
-from app.services.order_service import OrderService
+from backend.app.models.order import Order
+from backend.app.repositories.order_repository import OrderRepository
+from backend.app.repositories.stock_repository import StockRepository
+from backend.app.services.order_service import OrderService
 
 router = APIRouter()
 

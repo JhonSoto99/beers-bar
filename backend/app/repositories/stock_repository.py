@@ -2,9 +2,9 @@ from typing import Dict
 
 from pydantic import ValidationError
 
-from app.models.stock import Stock
-from app.repositories.exceptions import LoadStockError
-from data.stock_data import mock_stock_data
+from backend.app.models.stock import Stock
+from backend.app.repositories.exceptions import LoadStockError
+from backend.data.stock_data import mock_stock_data
 
 
 class StockRepository:

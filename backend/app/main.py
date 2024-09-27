@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.controllers.v1 import order_controller
-from app.exception_handlers import exception_container
+from backend.app.controllers.v1 import order_controller
+from backend.app.exception_handlers import exception_container
 
 app = FastAPI(
     docs_url="/api/docs",
