@@ -1,5 +1,7 @@
 from typing import Dict
 
+from pydantic import ValidationError
+
 from app.models.order import Order
 from data.order_data import mock_order_data
 
@@ -18,9 +20,9 @@ class OrderRepository:
 
         Loads the order data from the provided mock data.
         """
-        self.order: Order = self.load_order(mock_order_data)
+        self.order: Order = self._load_order(mock_order_data)
 
-    def load_order(self, order_data: Dict) -> Order:
+    def _load_order(self, order_data: Dict) -> Order:
         """
         Loads an Order object from a dictionary of order data.
 
@@ -29,8 +31,15 @@ class OrderRepository:
 
         Returns:
             Order: An instance of the Order model with the loaded data.
+
+        Raises:
+            ValidationError: Failed to load order data.
         """
-        return Order(**order_data)
+        try:
+            return Order(**order_data)
+        except ValidationError as e:
+            print(f"Failed to load order data: {e}")
+            raise
 
     def get_order(self) -> Order:
         """
