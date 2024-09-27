@@ -6,3 +6,7 @@ preview = true
 [tool.isort]
 profile = 'black'
 line_length = 80
+
+[tool.pytest.ini_options]
+pythonpath = "."
+

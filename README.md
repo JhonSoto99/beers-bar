@@ -76,9 +76,5 @@ Este proyecto incluye pruebas automatizadas para garantizar la funcionalidad y l
 Para ejecutar las pruebas, utiliza el siguiente comando:
 ```bash
   cd backend/
-  
-  export PYTHONPATH=$(pwd) # Linux
-  set PYTHONPATH=%cd% # windows
-
   pytest
 ```
