@@ -1,5 +1,7 @@
 from typing import Dict
 
+from pydantic import ValidationError
+
 from app.models.stock import Stock
 from data.stock_data import mock_stock_data
 
@@ -18,9 +20,9 @@ class StockRepository:
 
         Loads the stock data from the provided mock data.
         """
-        self.stock = self.load_stock(mock_stock_data)
+        self.stock = self._load_stock(mock_stock_data)
 
-    def load_stock(self, stock_data: Dict) -> Stock:
+    def _load_stock(self, stock_data: Dict) -> Stock:
         """
         Loads a Stock object from a dictionary of stock data.
 
@@ -30,7 +32,11 @@ class StockRepository:
         Returns:
             Stock: An instance of the Stock model with the loaded data.
         """
-        return Stock(**stock_data)
+        try:
+            return Stock(**stock_data)
+        except ValidationError as e:
+            print(f"Failed to load order data: {e}")
+            raise
 
     def get_stock(self) -> Stock:
         """
