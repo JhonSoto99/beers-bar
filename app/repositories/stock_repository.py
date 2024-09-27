@@ -3,6 +3,7 @@ from typing import Dict
 from pydantic import ValidationError
 
 from app.models.stock import Stock
+from app.repositories.exceptions import LoadStockError
 from data.stock_data import mock_stock_data
 
 
@@ -31,12 +32,14 @@ class StockRepository:
 
         Returns:
             Stock: An instance of the Stock model with the loaded data.
+
+        Raises:
+            LoadStockError: Failed to load stock data.
         """
         try:
             return Stock(**stock_data)
         except ValidationError as e:
-            print(f"Failed to load order data: {e}")
-            raise
+            raise LoadStockError(f"Validation failed: {e}")
 
     def get_stock(self) -> Stock:
         """

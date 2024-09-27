@@ -3,6 +3,7 @@ from typing import Dict
 from pydantic import ValidationError
 
 from app.models.order import Order
+from app.repositories.exceptions import LoadOrderError
 from data.order_data import mock_order_data
 
 
@@ -33,13 +34,12 @@ class OrderRepository:
             Order: An instance of the Order model with the loaded data.
 
         Raises:
-            ValidationError: Failed to load order data.
+            LoadOrderError: Failed to load order data.
         """
         try:
             return Order(**order_data)
         except ValidationError as e:
-            print(f"Failed to load order data: {e}")
-            raise
+            raise LoadOrderError(f"Validation failed: {e}") from e
 
     def get_order(self) -> Order:
         """
