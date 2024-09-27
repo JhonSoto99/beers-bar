@@ -1,4 +1,4 @@
-from backend.app.base_exceptions import CustomError
+from app.base_exceptions import CustomError
 
 
 class InvalidOrderDataError(CustomError):

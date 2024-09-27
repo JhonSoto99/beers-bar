@@ -1,9 +1,9 @@
 from typing import Dict, List
 
-from backend.app.models.order import Item, Order, Round
-from backend.app.repositories.order_repository import OrderRepository
-from backend.app.repositories.stock_repository import StockRepository
-from backend.app.services.exceptions import InvalidOrderDataError
+from app.models.order import Item, Order, Round
+from app.repositories.order_repository import OrderRepository
+from app.repositories.stock_repository import StockRepository
+from app.services.exceptions import InvalidOrderDataError
 
 
 class OrderService:

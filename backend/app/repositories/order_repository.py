@@ -2,9 +2,9 @@ from typing import Dict
 
 from pydantic import ValidationError
 
-from backend.app.models.order import Order
-from backend.app.repositories.exceptions import LoadOrderError
-from backend.data.order_data import mock_order_data
+from app.models.order import Order
+from app.repositories.exceptions import LoadOrderError
+from data.order_data import mock_order_data
 
 
 class OrderRepository:
