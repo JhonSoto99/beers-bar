@@ -66,10 +66,10 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 
 4. **Configurar archivo .env:**
 
-    Se debe configurar el host del backend en un archivo .env en la raiz del proyecto fronted,
-    en el respositorio hay una plantilla llamada env.example para crear el archivo .env
+    Se debe configurar el host del backend en un archivo .env en la raiz del proyecto frontend,
+    en el respositorio existe una plantilla llamada env.example para crear el archivo .env
 
-    debería quedar asó:
+    debería quedar así:
     ```bash
        .env
        API_URL="http://0.0.0.0:5000"
