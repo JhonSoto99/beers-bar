@@ -1,37 +1,15 @@
-# Beers Bar Backend
+# Beers Bar Backend y Frontend
 
 Este proyecto es un backend desarrollado en FastAPI para manejar la lógica de pedidos y stock.
 
 ## Requisitos
 
 - Python 3.12
-
-## Instalación con Docker
-
-1. **Clona el repositorio:**
-
-   ```bash
-   git clone git@github.com:JhonSoto99/beers-bar.git
-   cd beers-bar
-
-2. **Construye el contenedor docker:**
-
-   ```bash
-   docker-compose build
-
-2. **Levanta el contenedor docker:**
-
-   ```bash
-   docker-compose up -d
-   ```
-   Esto iniciará el servidor.
-   La aplicación estará disponible en:
-   - [http://localhost:8080/api/docs](http://localhost:8080/api/docs)
-   - [http://localhost:8080/api/redoc](http://localhost:8080/api/redoc)
+- Next 14.2.13
+- React 18
 
 
-
-## Instalación sin Docker
+## Instalación Bakend
 
 1. **Clona el repositorio:**
 
@@ -77,4 +55,33 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
 ```bash
   cd backend/
   pytest
+```
+
+3. **Instala las dependencias:**
+   ```bash
+   cd frotnend
+   npm install
+
+4. **Ejecución del Proyecto:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+## Pruebas
+
+Este proyecto incluye pruebas automatizadas para garantizar la funcionalidad y la calidad del código. A continuación, se indican los pasos para ejecutar las pruebas.
+
+Para ejecutar las pruebas, utiliza el siguiente comando:
+```bash
+  cd frontend/
+  npm run test
 ```
