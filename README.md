@@ -1,13 +1,14 @@
 # Beers Bar Backend y Frontend
 
-Este proyecto es un backend desarrollado en FastAPI para manejar la lógica de pedidos y stock.
+Este proyecto contiene un backend desarrollado en FastAPI para manejar la lógica de pedidos y stock.
+Y un Frotend desarrollado en Next.js para visualizar los datos.
 
 ## Requisitos
 
 - Python 3.12
-- Next 14.2.13
-- React 18
-
+- Next.js 14.2.13
+- React.js 18
+- Node 21.6.1
 
 ## Instalación Bakend
 
@@ -34,18 +35,18 @@ Este proyecto es un backend desarrollado en FastAPI para manejar la lógica de p
    
    Esto iniciará el servidor en modo de recarga automática.
    La aplicación estará disponible en:
-   - [http://127.0.0.1:5000/api/docs](http://localhost:8080/api/docs)
-   - [http://127.0.0.1:5000/api/redoc](http://localhost:8080/api/redoc)
+   - [http://0.0.0.0:5000/api/docs](http://0.0.0.0:5000/api/docs)
+   - [http://0.0.0.0:5000/api/redoc](http://0.0.0.0:5000/api/redoc)
 
 
 ## Documentación de la API:
    A la documentación de la API se puede acceder en:
 
    - Swagger:
-   http://127.0.0.1:5000/api/docs
+     [http://0.0.0.0:5000/api/docs](http://0.0.0.0:5000/api/docs)
    
    - Redoc
-   http://127.0.0.1:5000/api/redoc
+     [http://0.0.0.0:5000/api/redoc](http://0.0.0.0:5000/api/redoc)
 
 ## Pruebas
 
@@ -57,24 +58,27 @@ Para ejecutar las pruebas, utiliza el siguiente comando:
   pytest
 ```
 
+## Instalación Frontend
+
 3. **Instala las dependencias:**
    ```bash
-   cd frotnend
    npm install
+
+4. **Configurar archivo .env:**
+
+    Se debe configurar el host del backend en un archivo .env en la raiz del proyecto fronted,
+    en el respositorio hay una plantilla llamada env.example para crear el archivo .env
+
+    debería quedar asó:
+    ```bash
+       .env
+       API_URL="http://0.0.0.0:5000"
+    ```
 
 4. **Ejecución del Proyecto:**
    ```bash
    npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
    ```
-
-   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 
 ## Pruebas
 
