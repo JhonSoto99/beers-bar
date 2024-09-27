@@ -39,6 +39,10 @@ class OrderService:
             Order: The current order with updated items and subtotal.
         """
         order = self.order_repository.get_order()
+
+        if not order or not order.rounds:
+            raise ValueError("Invalid order data retrieved.")
+
         order.items = self.aggregate_items_from_rounds(order.rounds)
         order.subtotal = self.calculate_subtotal(order.items)
 
@@ -64,8 +68,8 @@ class OrderService:
         }
         item_summary = {}
 
-        for round in rounds:
-            for round_item in round.items:
+        for order_round in rounds:
+            for round_item in order_round.items:
                 self.update_item_summary(
                     item_summary, round_item.name, round_item.quantity, stock
                 )
